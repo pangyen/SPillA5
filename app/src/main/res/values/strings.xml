@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">SPillA</string>
+    <string name="title_activity_note">PillsActivity</string>
+    <string name="title_activity_pills">Pills Details</string>
+    <string name="title_activity_appointment">Appointment</string>
+    <string name="title_add_appointment">Add Appointment</string>
+    <string name="title_add_guardian">Invite Your Guardian</string>
+    <string name="title_activity_history">Health History</string>
+    <string name="title_add_history">Add History</string>
+    <string name="title_add_pills">Add pill details</string>
+    <string name="title_activity_guardian">Your Guardian List</string>
+    <string name="btn_invite">Send Invite Code</string>
+    <string name="btn_box1">Compartment Box 1</string>
+
+
+    <!-- ACTION -->
+    <string name="done_saved">Succesfully Save</string>
+    <string name="done_deleted">Succesfully deleted</string>
+    <string name="authentication_failed">Authentication failed.</string>
+
+    <!-- HINT -->
+    <string name="hint_title">Enter title</string>
+    <string name="hint_content">Enter content</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <!-- MENU -->
+    <string name="action_logout">Logout</string>
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    <string name="Home"></string>
+    <string name="Gallery"></string>
+    <string name="Import"></string>
+    <string name="SlideShow"></string>
+    <string name="Tools"></string>
+
+
+    <string name="title_activity_gallery"></string>
+    <string name="title_activity_slideshow"></string>
+    <string name="title_activity_tools"></string>
+
+
+    <string name="sign_up_Confirmation">By continuing, I confirm that I have read and agreed to the Terms of Use and Privacy Policy.</string>
+    <string name="text_log_in">Log In</string>
+    <string name="btn_google_login">Log In With Google</string>
+
+
+    <!-- pills -->
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_today">Today</string>
+    <string name="title_activity_hist">History</string>
+    <string name="title_activity_tomorrow">Tomorrow</string>
+    <string name="title_activity_add">Add Alarm!</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="title_activity_alert">Alert Activity Screen</string>
+    <string name="str_btn_set_alarm">Set Alarm</string>
+    <string name="str_btn_cancel">Cancel</string>
+    <string name="str_tv_message">Opened by Alarm</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="pill_name">Please insert pill name</string>
+
+    <string name="Monday">Mo</string>
+    <string name="Tuesday">Tu</string>
+    <string name="Wednesday">We</string>
+    <string name="Thursday">Th</string>
+    <string name="Friday">Fr</string>
+    <string name="Saturday">Sa</string>
+    <string name="Sunday">Su</string>
+    <string name="title_activity_edit">EditActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="action_edit">edit</string>
+
+</resources>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "845252615978",
+    "firebase_url": "https://spilla5-ce513.firebaseio.com",
+    "project_id": "spilla5-ce513",
+    "storage_bucket": "spilla5-ce513.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845252615978:android:2f814c5b98df6c02",
+        "android_client_info": {
+          "package_name": "com.example.fatinnabila.spilla"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845252615978-im3u9fts0gg4j9k4qvni9ldd28t4ee35.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fatinnabila.spilla",
+            "certificate_hash": "563126c3a7191710e51ad24c6ede29c43910688f"
+          }
+        },
+        {
+          "client_id": "845252615978-nus4sq149ovvamfk9u7lb5jh8j8stcie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx_p-NTQRJ2lDtzlc11QxF0i6MKtI_N4I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845252615978-nus4sq149ovvamfk9u7lb5jh8j8stcie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single"/>
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home_icon_silhouette"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_pills"
+        android:icon="@drawable/ic_004_pills"
+        android:title="Pills" />
+    <item
+        android:id="@+id/nav_appointment"
+        android:icon="@drawable/ic_003_medical_stethoscope_variant"
+        android:title="Appointment" />
+    <item
+        android:id="@+id/nav_history"
+        android:icon="@drawable/ic_001_history"
+        android:title="Health History" />
+    <item
+        android:id="@+id/nav_guardian"
+        android:icon="@drawable/ic_002_family"
+        android:title="Guardian" />
+
+
+</menu>

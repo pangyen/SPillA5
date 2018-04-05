@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.fatinnabila.spilla">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="SPillA"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Appointment"
+            android:label="@string/title_activity_appointment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddAppointment"
+            android:label="@string/title_add_appointment"
+            android:parentActivityName=".Appointment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".HealthHistory"
+            android:label="@string/title_activity_history"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddHistory"
+            android:label="@string/title_add_history"
+            android:parentActivityName=".HealthHistory"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Guardian"
+            android:label="@string/title_activity_guardian"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddGuardian"
+            android:label="@string/title_add_guardian"
+            android:parentActivityName=".Guardian"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Pills"
+            android:label="@string/title_activity_pills"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddPills"
+            android:label="@string/title_add_pills"
+            android:parentActivityName=".Pills"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Box2"></activity>
+    </application>
+
+</manifest>
