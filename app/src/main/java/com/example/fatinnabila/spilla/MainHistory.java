@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.fatinnabila.spilla.adapter.HistoryAdapter;
 import com.example.fatinnabila.spilla.data.Reference;
@@ -140,17 +141,18 @@ public class MainHistory extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                // signOut();
+                Toast.makeText(MainHistory.this, "Succesfully Logout", Toast.LENGTH_SHORT).show();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_logout) {
-            return true;
+                mFirebaseAuth.signOut();
+                startActivity(new Intent(MainHistory.this, LoginActivity.class));
+
+                break;
         }
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

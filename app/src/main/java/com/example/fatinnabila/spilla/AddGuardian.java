@@ -65,31 +65,6 @@ public class AddGuardian extends AppCompatActivity{
 
         code.setText(mCurrentUser.getUid());
 
-//        addEmail.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//
-//
-//
-//                GuardianModel model = new GuardianModel(
-//                        mTVTitle.getText().toString(),
-//                        mTVDescription.getText().toString(),
-//                        mTVGemail.getText().toString()
-//
-//                );
-//
-//                save(model, new DatabaseReference.CompletionListener() {
-//                    @Override
-//                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-//                        actionNotification(databaseError, R.string.done_saved);
-//                    }
-//                });
-//            }
-//
-//        }
-//        );
-
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }

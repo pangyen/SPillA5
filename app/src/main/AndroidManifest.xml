@@ -168,8 +168,6 @@
         <service android:name=".RingtonePlayingService7"
             android:enabled="true">
         </service>
-
-
     </application>
 
 </manifest>

@@ -34,32 +34,16 @@ import java.util.ArrayList;
 public class DisplayBox6 extends AppCompatActivity {
 
     private final static String
-
             TAG = DisplayBox1.class.getSimpleName();
-
-    //    private OtherAdapter mAdapter;
     private PillsAdapter mAdapter;
 
     // Firebase Authentication
     private DatabaseReference rootRef, demoRef;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mCurrentUser;
-    private FirebaseDatabase mDatabase, childRef;
+    private FirebaseDatabase mDatabase;
     private FirebaseFirestore mFirestore;
-
-    private DatabaseReference mOtherReference;
-
-    private TextView mTVTitle;
-    private TextView mTVDescription;
     TextView statusPills;
-
-
-//    RecyclerView rv;
-//    ListView listViewother;
-
-    //RecyclerView<OtherModel> other;
-    //  RecyclerView recyclerView1;
-
     private ArrayList<String> mKeys;
 
     @Override
@@ -72,23 +56,15 @@ public class DisplayBox6 extends AppCompatActivity {
         mCurrentUser = mFirebaseAuth.getCurrentUser();
         mFirestore = FirebaseFirestore.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
-
-        // Load guardian
         loadOther();
 
-
-        // mAdapter = new PillsAdapter(this,null);
-        //recycler view
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_displaypb1);
         recyclerView.setLayoutManager(new LinearLayoutManager(DisplayBox6.this));
 
         mAdapter = new PillsAdapter(this, new PillsAdapter.OnItemClick() {
             @Override
             public void onClick(int pos) {
-                // Open back note activity with data
                 Intent intent = new Intent(getApplicationContext(), DisplayPills.class);
-                //          intent.putExtra(Reference.PILLS_ID, mKeys.get(pos));
-                //startActivity(intent);
             }
         });
         recyclerView.setAdapter(mAdapter);
@@ -122,7 +98,6 @@ public class DisplayBox6 extends AppCompatActivity {
         //display current status pills
         statusPills = (TextView) findViewById(R.id.tvv_statusBox1);
         rootRef = FirebaseDatabase.getInstance().getReference();
-        // demoRef = rootRef.child("PB1381001237");
         demoRef = rootRef;
         demoRef.child("status").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -155,14 +130,11 @@ public class DisplayBox6 extends AppCompatActivity {
 
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        // clear table
-                        // Log.d(TAG, dataSnapshot.toString());
                         for (DataSnapshot boxSnapshot : dataSnapshot.getChildren()) {
 
                             Log.d(TAG, dataSnapshot.toString());
                             PillsModel model = boxSnapshot.getValue(PillsModel.class);
                             mAdapter.addData(model);
-//                            mKeys.add(noteSnapshot.getKey());
                         }
                     }
 
@@ -175,8 +147,6 @@ public class DisplayBox6 extends AppCompatActivity {
 
 
     public void createNotification1() {
-        // Prepare intent which is triggered if the
-        // notification is selected
         Intent notification_intent = new Intent(this, DisplayBox1.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notification_intent, 0);
 
@@ -187,26 +157,7 @@ public class DisplayBox6 extends AppCompatActivity {
         notificationBuilder.setAutoCancel(true);
         notificationBuilder.setSound(defaultSoundUri);
         notificationBuilder.setContentIntent(pendingIntent);
-        //Notification noti = new Notification.Builder(this)
-        //.setContentTitle("New mail from " + "test@gmail.com")
-//                .setContentText("Subject").setSmallIcon(R.drawable.icon)
-//                .setContentIntent(pendingIntent)
-//                .addAction(R.drawable.icon, "Call", pendingIntent)
-//                .addAction(R.drawable.icon, "More", pendingIntent)
-//                .addAction(R.drawable.icon, "And more", pendingIntent).build();
-
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        // hide the notification after its selected
-        // notificationBuilder.flags |= Notification.FLAG_AUTO_CANCEL;
-
-        //notificationManager.notify(0, noti);
-
-        //NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0, notificationBuilder.build());
-
-
-//         Create the NotificationChannel, but only on API 26+ because
-//         the NotificationChannel class is new and not in the support library
-
     }
 }

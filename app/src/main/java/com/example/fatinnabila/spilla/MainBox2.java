@@ -30,9 +30,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.fatinnabila.spilla.adapter.Box1Adapter;
+import com.example.fatinnabila.spilla.adapter.BoxAdapter;
 import com.example.fatinnabila.spilla.data.Reference;
-import com.example.fatinnabila.spilla.model.Box1Model;
+import com.example.fatinnabila.spilla.model.BoxModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -68,7 +68,7 @@ public class MainBox2 extends AppCompatActivity implements NavigationView.OnNavi
     private PendingIntent pending_intent1;
 
     //a list to store all  from firebase database
-    List<Box1Model> boxs1;
+    List<BoxModel> boxs1;
     ListView listViewBox1;
     Spinner spinner;
     ImageButton addpills;
@@ -305,12 +305,12 @@ public class MainBox2 extends AppCompatActivity implements NavigationView.OnNavi
                 // load data
                 for (DataSnapshot addBox1Snapshot : dataSnapshot.getChildren()) {
 
-                    Box1Model model = addBox1Snapshot.getValue(Box1Model.class);
+                    BoxModel model = addBox1Snapshot.getValue(BoxModel.class);
                     boxs1.add(model);
                 }
 
                 //creating adapter
-                Box1Adapter box1Adapter = new Box1Adapter(MainBox2.this, boxs1);
+                BoxAdapter box1Adapter = new BoxAdapter(MainBox2.this, boxs1);
                 //attaching adapter to the listview
                 listViewBox1.setAdapter(box1Adapter);
 
@@ -342,41 +342,17 @@ public class MainBox2 extends AppCompatActivity implements NavigationView.OnNavi
         notificationBuilder.setSmallIcon(R.drawable.ic_pills2);
         notificationBuilder.setContentTitle("Pills is still Not Taken");
         notificationBuilder.setAutoCancel(true);
-      //  notificationBuilder.setSound(defaultSoundUri);
         notificationBuilder.setContentIntent(pendingIntent);
-        //Notification noti = new Notification.Builder(this)
-        //.setContentTitle("New mail from " + "test@gmail.com")
-//                .setContentText("Subject").setSmallIcon(R.drawable.icon)
-//                .setContentIntent(pendingIntent)
-//                .addAction(R.drawable.icon, "Call", pendingIntent)
-//                .addAction(R.drawable.icon, "More", pendingIntent)
-//                .addAction(R.drawable.icon, "And more", pendingIntent).build();
-
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        // hide the notification after its selected
-        // notificationBuilder.flags |= Notification.FLAG_AUTO_CANCEL;
-
-        //notificationManager.notify(0, noti);
-
-        //NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0, notificationBuilder.build());
-
-
-//         Create the NotificationChannel, but only on API 26+ because
-//         the NotificationChannel class is new and not in the support library
-
     }
 
 
     private void addBox1() {
         String pillstype = spinner.getSelectedItem().toString();
-
-        //checking if the value is provided
-        //getting a unique id using push().getKey() method
-        //it will create a unique id and we will use it as the Primary Key
         String id = box2Reference.push().getKey();
         //creating an  Object
-        Box1Model box1 = new Box1Model(id, pillstype);
+        BoxModel box1 = new BoxModel(id, pillstype);
         //Saving
         box2Reference.child(id).setValue(box1);
         //displaying

@@ -30,9 +30,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.fatinnabila.spilla.adapter.Box1Adapter;
+import com.example.fatinnabila.spilla.adapter.BoxAdapter;
 import com.example.fatinnabila.spilla.data.Reference;
-import com.example.fatinnabila.spilla.model.Box1Model;
+import com.example.fatinnabila.spilla.model.BoxModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -71,7 +71,7 @@ public class MainBox1 extends AppCompatActivity implements NavigationView.OnNavi
     private PendingIntent pending_intent1;
 
     //a list to store all  from firebase database
-    List<Box1Model> boxs1;
+    List<BoxModel> boxs1;
     ListView listViewBox1;
     Spinner spinner;
     ImageButton addpills;
@@ -311,12 +311,12 @@ public class MainBox1 extends AppCompatActivity implements NavigationView.OnNavi
                 // load data
                 for (DataSnapshot addBox1Snapshot : dataSnapshot.getChildren()) {
 
-                    Box1Model model = addBox1Snapshot.getValue(Box1Model.class);
+                    BoxModel model = addBox1Snapshot.getValue(BoxModel.class);
                     boxs1.add(model);
                 }
 
                 //creating adapter
-                Box1Adapter box1Adapter = new Box1Adapter(MainBox1.this, boxs1);
+                BoxAdapter box1Adapter = new BoxAdapter(MainBox1.this, boxs1);
                 //attaching adapter to the listview
                 listViewBox1.setAdapter(box1Adapter);
 
@@ -353,7 +353,7 @@ public class MainBox1 extends AppCompatActivity implements NavigationView.OnNavi
     private void addBox1() {
         String pillstype = spinner.getSelectedItem().toString();
         String id = box1Reference.push().getKey();
-        Box1Model box1 = new Box1Model(id, pillstype);
+        BoxModel box1 = new BoxModel(id, pillstype);
         box1Reference.child(id).setValue(box1);
         Toast.makeText(this, "Pills added", Toast.LENGTH_LONG).show();
     }

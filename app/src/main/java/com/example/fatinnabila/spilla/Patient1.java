@@ -212,14 +212,6 @@ public class Patient1 extends AppCompatActivity implements NavigationView.OnNavi
         buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String name = editTextName.getText().toString().trim();
-//                String genre = spinnerGenre.getSelectedItem().toString();
-//                if (!TextUtils.isEmpty(name)) {
-//                    updateArtist(artistId, name, genre);
-//                    b.dismiss();
-//                }
-
-                //*****
                 Map<String, Object> docData = new HashMap<>();
 
                 docData.put("patients", Arrays.asList(codeinvite.getText().toString()));

@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
      TextView tvMail;
 
-    //Firebase realtime
-    private DatabaseReference rootRef,demoRef, pillsRef;
+    //Firebase rference
+    private DatabaseReference demoRef;
 
     // Firebase Authentication
     private FirebaseAuth mFirebaseAuth;

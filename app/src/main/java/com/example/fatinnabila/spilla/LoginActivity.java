@@ -35,15 +35,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private GoogleApiClient mGoogleApiClient;
     Button sign_out;
     Button signin;
-    //TextView tvname;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        //  private SignInButton mBtnSignIn;
 
         mAuth = FirebaseAuth.getInstance();
         // Check user, if not exists then go login
@@ -55,26 +52,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
 
         signin = (Button) findViewById(R.id.btn_signin);
-//        sign_out= (Button) findViewById(R.id.sign_out);
-//        sign_out.setVisibility(View.VISIBLE);
-
-
-
-//        sign_out.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//
-//            public void onClick(View v) {
-//
-//                int i = v.getId();
-//                if(i==R.id.sign_out){
-//
-//
-//                }
-//                signOut();
-//            }
-//        });
-
-
         findViewById(R.id.btn_signin).setOnClickListener(LoginActivity.this);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -88,7 +65,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         mAuth = FirebaseAuth.getInstance();
     }
-
 
     @Override
     public void onClick(View v) {

@@ -20,7 +20,6 @@ public class AppointmentAdapter extends
 
     private Context mContext;
     private ArrayList<AppointmentModel> mData;
-
     private AppointmentAdapter.OnItemClick mListener;
 
     public AppointmentAdapter(Context context, AppointmentAdapter.OnItemClick listener) {

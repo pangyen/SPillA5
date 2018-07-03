@@ -13,7 +13,7 @@ public class AlarmReceiver6 extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         String state = intent.getExtras().getString("extra");
-        Log.e("MyActivity2", "In the receiver with " + state);
+        Log.e("MyActivity6", "In the receiver with " + state);
 
         Intent serviceIntent = new Intent(context,RingtonePlayingService6.class);
         serviceIntent.putExtra("extra", state);

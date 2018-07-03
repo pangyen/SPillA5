@@ -32,12 +32,7 @@ import java.util.ArrayList;
 
 public class DisplayAppointment extends AppCompatActivity {
 
-
-    private final static String
-
-            TAG = DisplayPills.class.getSimpleName();
-
-    //    private OtherAdapter mAdapter;
+    private final static String TAG = DisplayPills.class.getSimpleName();
     private AppointmentAdapter mAdapter;
 
     // Firebase Authentication
@@ -45,37 +40,22 @@ public class DisplayAppointment extends AppCompatActivity {
     private FirebaseUser mCurrentUser;
     private FirebaseDatabase mDatabase, childRef;
     private FirebaseFirestore mFirestore;
-
     private DatabaseReference mOtherReference;
 
     private TextView mTVTitle;
     private TextView mTVDescription;
-
-
-//    RecyclerView rv;
-//    ListView listViewother;
-
-    //RecyclerView<OtherModel> other;
-    //  RecyclerView recyclerView1;
-
     private ArrayList<String> mKeys;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.content_displayappointment);
-
         mFirebaseAuth = FirebaseAuth.getInstance();
         mCurrentUser = mFirebaseAuth.getCurrentUser();
         mFirestore = FirebaseFirestore.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
-
         // Load guardian
         loadOther();
-
-
-        // mAdapter = new PillsAdapter(this,null);
         //recycler view
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_displayappointment);
         recyclerView.setLayoutManager(new LinearLayoutManager(DisplayAppointment.this));

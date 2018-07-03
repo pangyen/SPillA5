@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.fatinnabila.spilla.adapter.GuardianAdapter;
 import com.example.fatinnabila.spilla.data.Reference;
@@ -147,17 +148,18 @@ MainGuardian extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                // signOut();
+                Toast.makeText(MainGuardian.this, "Succesfully Logout", Toast.LENGTH_SHORT).show();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_logout) {
-            return true;
+                mFirebaseAuth.signOut();
+                startActivity(new Intent(MainGuardian.this, LoginActivity.class));
+
+                break;
         }
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -196,9 +198,6 @@ MainGuardian extends AppCompatActivity
                 Intent v= new Intent(MainGuardian.this,Profile.class);
                 startActivity(v);
                 break;
-            // after this lets start copying the above.
-            // FOLLOW MEEEEE>>>
-            //copy this now.
         }
 
 

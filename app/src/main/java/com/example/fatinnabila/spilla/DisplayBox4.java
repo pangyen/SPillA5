@@ -35,9 +35,7 @@ public class DisplayBox4 extends AppCompatActivity {
 
     private final static String
 
-            TAG = DisplayBox1.class.getSimpleName();
-
-    //    private OtherAdapter mAdapter;
+            TAG = DisplayBox4.class.getSimpleName();
     private PillsAdapter mAdapter;
 
     // Firebase Authentication
@@ -52,14 +50,6 @@ public class DisplayBox4 extends AppCompatActivity {
     private TextView mTVTitle;
     private TextView mTVDescription;
     TextView statusPills;
-
-
-//    RecyclerView rv;
-//    ListView listViewother;
-
-    //RecyclerView<OtherModel> other;
-    //  RecyclerView recyclerView1;
-
     private ArrayList<String> mKeys;
 
     @Override
@@ -87,8 +77,6 @@ public class DisplayBox4 extends AppCompatActivity {
             public void onClick(int pos) {
                 // Open back note activity with data
                 Intent intent = new Intent(getApplicationContext(), DisplayPills.class);
-                //          intent.putExtra(Reference.PILLS_ID, mKeys.get(pos));
-                //startActivity(intent);
             }
         });
         recyclerView.setAdapter(mAdapter);
@@ -187,26 +175,7 @@ public class DisplayBox4 extends AppCompatActivity {
         notificationBuilder.setAutoCancel(true);
         notificationBuilder.setSound(defaultSoundUri);
         notificationBuilder.setContentIntent(pendingIntent);
-        //Notification noti = new Notification.Builder(this)
-        //.setContentTitle("New mail from " + "test@gmail.com")
-//                .setContentText("Subject").setSmallIcon(R.drawable.icon)
-//                .setContentIntent(pendingIntent)
-//                .addAction(R.drawable.icon, "Call", pendingIntent)
-//                .addAction(R.drawable.icon, "More", pendingIntent)
-//                .addAction(R.drawable.icon, "And more", pendingIntent).build();
-
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        // hide the notification after its selected
-        // notificationBuilder.flags |= Notification.FLAG_AUTO_CANCEL;
-
-        //notificationManager.notify(0, noti);
-
-        //NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0, notificationBuilder.build());
-
-
-//         Create the NotificationChannel, but only on API 26+ because
-//         the NotificationChannel class is new and not in the support library
-
     }
 }

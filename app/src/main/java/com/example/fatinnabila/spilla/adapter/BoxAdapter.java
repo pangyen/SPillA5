@@ -7,24 +7,24 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import com.example.fatinnabila.spilla.R;
-import com.example.fatinnabila.spilla.model.Box1Model;
+import com.example.fatinnabila.spilla.model.BoxModel;
 
 import java.util.List;
 
 /**
  * Created by fatin nabila on 29/3/2018.
  */
-public class Box1Adapter extends
-        ArrayAdapter<Box1Model> {
+public class BoxAdapter extends
+        ArrayAdapter<BoxModel> {
     private Activity context;
-    List<Box1Model> boxs1;
+    List<BoxModel> boxs1;
 
-    public Box1Adapter(Activity context, List<Box1Model> pillb1) {
+    public BoxAdapter(Activity context, List<BoxModel> pillb1) {
         super(context, R.layout.layout_box1list, pillb1);
         this.context = context;
         this.boxs1 = pillb1;
     }
-    public void addData(Box1Model model) {
+    public void addData(BoxModel model) {
         boxs1.add(model);
 
         notifyDataSetChanged();
@@ -40,9 +40,9 @@ public class Box1Adapter extends
         TextView textViewPills = (TextView) listViewItem.findViewById(R.id.textViewPills);
        // TextView textViewDose = (TextView) listViewItem.findViewById(R.id.textViewDose);
 
-        Box1Model box1Model = boxs1.get(position);
-        textViewPills.setText(box1Model.getTitle());
-     //  textViewDose.setText(box1Model.getDose());
+        BoxModel boxModel = boxs1.get(position);
+        textViewPills.setText(boxModel.getTitle());
+     //  textViewDose.setText(boxModel.getDose());
 
         return listViewItem;
     }
