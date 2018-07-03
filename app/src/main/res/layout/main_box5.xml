@@ -1,0 +1,190 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.fatinnabila.spilla.MainBox5"
+    android:background="@mipmap/back11">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/app_bar"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appB"
+            android:padding="@dimen/standard_margin">
+
+            <TextView
+                android:id="@+id/labelstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status Pills : "
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/tv_statusBox1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="detecting pills..."
+                android:textSize="20dp"
+                android:layout_toRightOf="@+id/labelstatus"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:background="@drawable/rounded"
+                android:textAlignment="center"/>
+
+
+            <TextView android:id="@+id/pill_name_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pill Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/tv_statusBox1"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginTop="8dp"/>
+
+            <RelativeLayout
+                android:id="@+id/vpill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pill_name_title"
+                android:orientation="horizontal">
+                <Spinner
+                    android:id="@+id/spn_pills"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="@dimen/space_xl"
+                    android:hint="@string/pill_name"
+                    />
+
+
+                <ImageButton
+                    android:id="@+id/btn_addBox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:src="@drawable/ic_plus"
+                    android:layout_marginRight="@dimen/standard_margin"
+                    android:layout_alignParentRight="true"
+                    android:foregroundGravity="bottom"
+                    />
+            </RelativeLayout>
+
+
+            <TextView android:id="@+id/time_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/vpill"
+                android:text="Reminder Time"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginTop="8dp"/>
+
+
+
+            <RelativeLayout
+                android:id="@+id/vtime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/time_title"
+                android:orientation="horizontal">
+
+                <TextView android:id="@+id/alarmTimePicker2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="@dimen/space_xl"
+                    android:textSize="20dp"
+                    android:clickable="true"
+                    android:textAlignment="center"
+                    android:background="@drawable/rounded"
+                    android:textColor="@color/black"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:text="Set the alarm clock!"
+                android:id="@+id/alarmText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/vtime"
+                android:textSize="10dp"
+                android:textStyle="italic"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:text="Pill List"
+                android:id="@+id/labelpill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/alarmText"
+                android:textAlignment="center"
+                android:layout_margin="@dimen/standard_margin"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginTop="8dp"/>
+
+            <ListView
+                android:id="@+id/listViewBox1"
+                android:layout_width="match_parent"
+                android:padding="@dimen/space_l"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/labelpill"
+                android:layout_marginBottom="@dimen/space_xl"
+                android:cacheColorHint="@color/colorPrimaryDark"
+                android:background="@color/white"></ListView>
+
+        </RelativeLayout>
+    <LinearLayout android:id="@+id/footer" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="horizontal"
+        android:layout_alignParentBottom="true" style="@android:style/ButtonBar"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginTop="@dimen/space_s">
+
+        <Button
+            android:text="Reset Alarm"
+            android:id="@+id/stop_alarm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="0.5"
+            android:textColor="#ffffff"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <View android:layout_height="fill_parent"
+            android:layout_width="2dp"
+            android:background="@color/white"/>
+
+        <Button
+            android:text="Set alarm"
+            android:id="@+id/start_alarm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="0.5"
+            android:textColor="#ffffff"
+            style="?android:attr/borderlessButtonStyle"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+

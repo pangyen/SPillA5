@@ -5,11 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.fatinnabila.spilla.Guardian"
+    tools:context="com.example.fatinnabila.spilla.MainGuardian"
     tools:showIn="@layout/add_guardian"
     android:layout_marginStart="@dimen/standard_separator"
     android:layout_marginEnd="@dimen/standard_separator">
-
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -26,14 +25,14 @@
             android:src="@mipmap/family"
             android:padding="16dp"/>
 
-
         <LinearLayout
             android:id="@+id/viewF"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.4"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:background="@mipmap/back9">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -46,7 +45,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_002_family" />
+                    android:src="@drawable/ic_family" />
 
                 <EditText
                     android:id="@+id/et_titleG"
@@ -69,7 +68,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_003_vintage_cellphone" />
+                    android:src="@drawable/ic_vintage_cellphone" />
 
                 <EditText
                     android:id="@+id/et_descriptionG"
@@ -95,7 +94,7 @@
                     android:src="@drawable/ic_opened_email_envelope" />
 
                 <EditText
-                    android:id="@+id/et_Email"
+                    android:id="@+id/et_emailG"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/iv_iconEmail"
@@ -104,18 +103,32 @@
 
             </RelativeLayout>
 
-            <Button
-                android:id="@+id/btn_invite"
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/standard_margin"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="@dimen/standard_margin"
-                android:text="@string/btn_invite"
-                android:textAllCaps="false"
-                android:textColor="@android:color/black"
-                android:background="@color/colorAccent"/>
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_icongp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_vintage_cellphone" />
+
+                <TextView
+                    android:id="@+id/et_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/iv_icongp"
+                    android:textSize="@dimen/space_m"
+                    android:hint="code" />
+
+            </RelativeLayout>
+
         </LinearLayout>
+
 
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

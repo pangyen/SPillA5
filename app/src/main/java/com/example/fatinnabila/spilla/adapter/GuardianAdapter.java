@@ -17,8 +17,8 @@ import java.util.ArrayList;
  * Created by fatin nabila on 21/3/2018.
  */
 
-public class GuardianAdapter  extends RecyclerView.Adapter<GuardianAdapter.GuardianViewHolder> {
-
+public class GuardianAdapter  extends
+        RecyclerView.Adapter<GuardianAdapter.GuardianViewHolder> {
 
     private Context mContext;
     private ArrayList<GuardianModel> mData;
@@ -45,6 +45,7 @@ public class GuardianAdapter  extends RecyclerView.Adapter<GuardianAdapter.Guard
 
         holder.title.setText(model.getTitle());
         holder.description.setText(model.getDescription());
+        holder.email.setText(model.getEmail());
         // set description as log
     }
 
@@ -77,12 +78,14 @@ public class GuardianAdapter  extends RecyclerView.Adapter<GuardianAdapter.Guard
 
         private TextView title;
         private TextView description;
+        private TextView email;
 
         GuardianViewHolder(View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.tv_titleG);
             description = itemView.findViewById(R.id.tv_descriptionG);
+            email=itemView.findViewById(R.id.tv_emailG);
 
             itemView.setOnClickListener(this);
         }

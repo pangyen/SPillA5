@@ -25,29 +25,28 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AddHistory extends AppCompatActivity {
 
-
     private EditText mTVHtitle;
     private EditText mTVHDes;
-
+    private EditText mTVHStart;
+    private EditText mTVHEnd;
+    //Firebase Realtime
     private DatabaseReference mReference;
-
     private String mId;
-
     // Firebase Authentication
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mCurrentUser;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
-        mCurrentUser = mFirebaseAuth.getCurrentUser();
-
-        setContentView(R.layout.activity_history);
+        setContentView(R.layout.add_history);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //Firebase Authentication
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mCurrentUser = mFirebaseAuth.getCurrentUser();
 
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -56,9 +55,10 @@ public class AddHistory extends AppCompatActivity {
         // Binding
         mTVHtitle = (EditText) findViewById(R.id.et_titleHistory);
         mTVHDes = (EditText) findViewById(R.id.et_desHistory);
+        mTVHStart = (EditText) findViewById(R.id.et_startHistory);
+        mTVHEnd = (EditText) findViewById(R.id.et_endHistory);
 
         mReference = FirebaseDatabase.getInstance().getReference(mCurrentUser.getUid()).child(Reference.DB_HISTORY);
-
         Intent intent = getIntent();
         // Load record
         if(intent != null) {
@@ -71,6 +71,8 @@ public class AddHistory extends AppCompatActivity {
                         if(model != null) {
                             mTVHtitle.setText(model.getTitle());
                             mTVHDes.setText(model.getDescription());
+                            mTVHStart.setText(model.getStart());
+                            mTVHEnd.setText(model.getEnd());
                         }
                     }
 
@@ -101,7 +103,7 @@ public class AddHistory extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_note, menu);
+        getMenuInflater().inflate(R.menu.menu_activity, menu);
         return true;
     }
 
@@ -114,7 +116,9 @@ public class AddHistory extends AppCompatActivity {
                 // What to do when save
                HistoryModel model = new HistoryModel(
                         mTVHtitle.getText().toString(),
-                        mTVHDes.getText().toString()
+                        mTVHDes.getText().toString(),
+                       mTVHStart.getText().toString(),
+                       mTVHEnd.getText().toString()
 
                 );
 
@@ -141,10 +145,6 @@ public class AddHistory extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /***
-     * Save record to firebase
-     * @param model
-     */
     private void save(HistoryModel model,
                       DatabaseReference.CompletionListener listener) {
 
@@ -165,5 +165,4 @@ public class AddHistory extends AppCompatActivity {
             Toast.makeText(AddHistory.this, error.getCode(), Toast.LENGTH_SHORT).show();
         }
     }
-
 }

@@ -1,92 +1,50 @@
 package com.example.fatinnabila.spilla.adapter;
 
-import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import com.example.fatinnabila.spilla.R;
 import com.example.fatinnabila.spilla.model.Box1Model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by fatin nabila on 29/3/2018.
  */
+public class Box1Adapter extends
+        ArrayAdapter<Box1Model> {
+    private Activity context;
+    List<Box1Model> boxs1;
 
-public class Box1Adapter extends RecyclerView.Adapter<Box1Adapter.Box1ViewHolder>{
-    private Context mContext;
-    private ArrayList<Box1Model> mData;
-
-    private Box1Adapter.OnItemClick mListener;
-
-    public Box1Adapter(Context context, Box1Adapter.OnItemClick listener) {
-        mContext = context;
-        mData = new ArrayList<>();
-
-        mListener = listener;
+    public Box1Adapter(Activity context, List<Box1Model> pillb1) {
+        super(context, R.layout.layout_box1list, pillb1);
+        this.context = context;
+        this.boxs1 = pillb1;
     }
-
-    @Override
-    public Box1Adapter.Box1ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.view_holder_box1, parent, false);
-        return new Box1Adapter.Box1ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(Box1Adapter.Box1ViewHolder holder, int position) {
-
-        Box1Model model = mData.get(position);
-
-        holder.title.setText(model.getTitle());
-        holder.description.setText(model.getDescription());
-        // set description as log
-    }
-
-    @Override
-    public int getItemCount() {
-        return mData.size();
-    }
-
     public void addData(Box1Model model) {
-        mData.add(model);
+        boxs1.add(model);
 
         notifyDataSetChanged();
     }
 
-    public void clear() {
-        mData.clear();
 
-        notifyDataSetChanged();
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        LayoutInflater inflater = context.getLayoutInflater();
+        View listViewItem = inflater.inflate(R.layout.layout_box1list, null, true);
+
+
+        TextView textViewPills = (TextView) listViewItem.findViewById(R.id.textViewPills);
+       // TextView textViewDose = (TextView) listViewItem.findViewById(R.id.textViewDose);
+
+        Box1Model box1Model = boxs1.get(position);
+        textViewPills.setText(box1Model.getTitle());
+     //  textViewDose.setText(box1Model.getDose());
+
+        return listViewItem;
     }
 
-    public Box1Model getItem(int position) {
-        return mData.get(position);
-    }
-
-    public interface OnItemClick {
-        void onClick(int pos);
-    }
-
-    class Box1ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
-        private TextView title;
-        private TextView description;
-
-        Box1ViewHolder(View itemView) {
-            super(itemView);
-
-            title = itemView.findViewById(R.id.tv_title);
-            description = itemView.findViewById(R.id.tv_description);
-
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            mListener.onClick(getAdapterPosition());
-        }
-    }
 }

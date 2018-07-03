@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="@drawable/app_bar"
+    android:background="@mipmap/cap6"
     android:gravity="bottom"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -22,11 +22,13 @@
         app:srcCompat="@drawable/ic_user"
         tools:ignore="VectorDrawableCompat" />
 
-
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ci150053@gmail.com" />
+        android:text="fnmy@uthm "
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/space_m"
+        android:textColor="@color/black"/>
 
 </LinearLayout>

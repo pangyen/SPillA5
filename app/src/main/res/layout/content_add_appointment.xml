@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.fatinnabila.spilla.Appointment"
-    tools:showIn="@layout/activity_appointment"
+    tools:context="com.example.fatinnabila.spilla.MainAppointment"
+    tools:showIn="@layout/add_appointment"
     android:layout_marginStart="@dimen/standard_separator"
     android:layout_marginEnd="@dimen/standard_separator">
 
@@ -33,7 +33,8 @@
             android:layout_height="match_parent"
             android:layout_weight="0.4"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:background="@mipmap/back9">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -46,7 +47,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_003_medical_stethoscope_variant" />
+                    android:src="@drawable/ic_medical_stethoscope1" />
 
                 <EditText
                     android:id="@+id/et_titleAppointment"
@@ -69,7 +70,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_002_calendar" />
+                    android:src="@drawable/ic_calendar" />
 
                 <EditText
                     android:id="@+id/et_dateAppointment"
@@ -92,7 +93,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_001_alarm_clock" />
+                    android:src="@drawable/ic_alarm_clock" />
 
                 <EditText
                     android:id="@+id/et_timeAppointment"
@@ -115,7 +116,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_002_hospital_buildings" />
+                    android:src="@drawable/ic_hospital_buildings" />
 
                 <EditText
                     android:id="@+id/et_placeAppointment"

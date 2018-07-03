@@ -15,7 +15,8 @@ import java.util.ArrayList;
 /**
  * Created by fatin nabila on 16/3/2018.
  */
-public class HistoryAdapter extends  RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder> {
+public class HistoryAdapter extends
+        RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder> {
 
     private Context mContext;
     private ArrayList<HistoryModel> mData;
@@ -25,7 +26,6 @@ public class HistoryAdapter extends  RecyclerView.Adapter<HistoryAdapter.History
     public HistoryAdapter(Context context, OnItemClick listener) {
         mContext = context;
         mData = new ArrayList<>();
-
         mListener = listener;
     }
 
@@ -39,9 +39,10 @@ public class HistoryAdapter extends  RecyclerView.Adapter<HistoryAdapter.History
     public void onBindViewHolder(HistoryViewHolder holder, int position) {
 
         HistoryModel model = mData.get(position);
-
         holder.htitle.setText(model.getTitle());
         holder.hdes.setText(model.getDescription());
+        holder.hstart.setText(model.getStart());
+        holder.hend.setText(model.getEnd());
         // set description as log
     }
 
@@ -52,13 +53,11 @@ public class HistoryAdapter extends  RecyclerView.Adapter<HistoryAdapter.History
 
     public void addData(HistoryModel model) {
         mData.add(model);
-
         notifyDataSetChanged();
     }
 
     public void clear() {
         mData.clear();
-
         notifyDataSetChanged();
     }
 
@@ -74,12 +73,16 @@ public class HistoryAdapter extends  RecyclerView.Adapter<HistoryAdapter.History
 
         private TextView htitle;
         private TextView hdes;
+        private TextView hstart;
+        private TextView hend;
 
         HistoryViewHolder(View itemView) {
             super(itemView);
 
             htitle = itemView.findViewById(R.id.tv_Htitle);
             hdes = itemView.findViewById(R.id.tv_Hdes);
+            hstart = itemView.findViewById(R.id.tv_Hstart);
+            hend = itemView.findViewById(R.id.tv_Hend);
 
             itemView.setOnClickListener(this);
         }
@@ -89,5 +92,4 @@ public class HistoryAdapter extends  RecyclerView.Adapter<HistoryAdapter.History
             mListener.onClick(getAdapterPosition());
         }
     }
-
 }

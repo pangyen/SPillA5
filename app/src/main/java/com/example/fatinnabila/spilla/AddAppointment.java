@@ -32,31 +32,33 @@ import java.util.Calendar;
 
 public class AddAppointment extends AppCompatActivity {
 
-
     private EditText mTVAtitle;
     private EditText mTVADate;
     private EditText mTVAtime;
+    private EditText mTVAplace;
     TimePickerDialog timePickerDialog;
     DatePickerDialog datePickerDialog;
 
+    //Firebase Realtime
     private DatabaseReference mReference;
-
     private String mId;
 
     // Firebase Authentication
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mCurrentUser;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
-        mCurrentUser = mFirebaseAuth.getCurrentUser();
-
-        setContentView(R.layout.activity_appointment);
+        setContentView(R.layout.add_appointment);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //Firebase Authentication
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mCurrentUser = mFirebaseAuth.getCurrentUser();
 
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -66,6 +68,7 @@ public class AddAppointment extends AppCompatActivity {
         mTVAtitle = (EditText) findViewById(R.id.et_titleAppointment);
         mTVADate = (EditText) findViewById(R.id.et_dateAppointment);
         mTVAtime = (EditText)findViewById(R.id.et_timeAppointment);
+        mTVAplace = (EditText)findViewById(R.id.et_placeAppointment);
 
         mReference = FirebaseDatabase.getInstance().getReference(mCurrentUser.getUid()).child(Reference.DB_APPOINTMENT);
 
@@ -91,6 +94,7 @@ public class AddAppointment extends AppCompatActivity {
                     }
                 });
             }
+
         }
 
 
@@ -166,7 +170,7 @@ public class AddAppointment extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_note, menu);
+        getMenuInflater().inflate(R.menu.menu_activity, menu);
         return true;
     }
 
@@ -180,7 +184,8 @@ public class AddAppointment extends AppCompatActivity {
                 AppointmentModel model = new AppointmentModel(
                         mTVAtitle.getText().toString(),
                         mTVADate.getText().toString(),
-                        mTVAtime.getText().toString()
+                        mTVAtime.getText().toString(),
+                        mTVAplace.getText().toString()
 
                 );
                 save(model, new DatabaseReference.CompletionListener() {
@@ -201,14 +206,9 @@ public class AddAppointment extends AppCompatActivity {
                 }
                 break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
-    /***
-     * Save record to firebase
-     * @param model
-     */
     private void save(AppointmentModel model,
                       DatabaseReference.CompletionListener listener) {
 
@@ -216,7 +216,6 @@ public class AddAppointment extends AppCompatActivity {
             // generate id
             mId = mReference.push().getKey();
         }
-
         mReference.child(mId).setValue(model, listener);
     }
 

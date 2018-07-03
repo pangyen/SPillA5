@@ -3,7 +3,6 @@ package com.example.fatinnabila.spilla.adapter;
 /**
  * Created by fatin nabila on 8/3/2018.
  */
-
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,7 +15,8 @@ import com.example.fatinnabila.spilla.model.PillsModel;
 
 import java.util.ArrayList;
 
-public class PillsAdapter extends RecyclerView.Adapter<PillsAdapter.PillsViewHolder> {
+public class PillsAdapter extends
+        RecyclerView.Adapter<PillsAdapter.PillsViewHolder> {
 
     private Context mContext;
     private ArrayList<PillsModel> mData;
@@ -26,7 +26,6 @@ public class PillsAdapter extends RecyclerView.Adapter<PillsAdapter.PillsViewHol
     public PillsAdapter(Context context, OnItemClick listener) {
         mContext = context;
         mData = new ArrayList<>();
-
         mListener = listener;
     }
 
@@ -43,6 +42,7 @@ public class PillsAdapter extends RecyclerView.Adapter<PillsAdapter.PillsViewHol
 
         holder.title.setText(model.getTitle());
         holder.description.setText(model.getDescription());
+        holder.dose.setText(model.getDose());
         // set description as log
     }
 
@@ -53,7 +53,6 @@ public class PillsAdapter extends RecyclerView.Adapter<PillsAdapter.PillsViewHol
 
     public void addData(PillsModel model) {
         mData.add(model);
-
         notifyDataSetChanged();
     }
 
@@ -75,12 +74,14 @@ public class PillsAdapter extends RecyclerView.Adapter<PillsAdapter.PillsViewHol
 
         private TextView title;
         private TextView description;
+        private TextView dose;
 
         PillsViewHolder(View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.tv_title);
             description = itemView.findViewById(R.id.tv_description);
+            dose=itemView.findViewById(R.id.tv_dose);
 
             itemView.setOnClickListener(this);
         }

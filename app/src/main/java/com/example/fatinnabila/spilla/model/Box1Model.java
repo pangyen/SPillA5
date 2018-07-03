@@ -7,15 +7,17 @@ package com.example.fatinnabila.spilla.model;
 public class Box1Model {
 
     private String title;
-    private String description;
-
+    private String box1Id;
 
     public Box1Model() {}
 
-    public Box1Model(String title, String description) {
-        this.title = title;
-        this.description = description;
+    public Box1Model(String box1Id, String title) {
 
+        this.box1Id=box1Id;
+        this.title=title;
+    }
+    public String getBox1Id() {
+        return box1Id;
     }
 
     public String getTitle() {
@@ -24,14 +26,6 @@ public class Box1Model {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
 }

@@ -4,25 +4,32 @@
     <group android:checkableBehavior="single"/>
 
     <item
+        android:id="@+id/nav_mail"
+        android:icon="@drawable/ic_user"
+        android:title="User Profile" />
+
+    <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home_icon_silhouette"
         android:title="Home" />
     <item
         android:id="@+id/nav_pills"
-        android:icon="@drawable/ic_004_pills"
+        android:icon="@drawable/ic_pills2"
         android:title="Pills" />
     <item
         android:id="@+id/nav_appointment"
-        android:icon="@drawable/ic_003_medical_stethoscope_variant"
+        android:icon="@drawable/ic_medical_stethoscope1"
         android:title="Appointment" />
     <item
         android:id="@+id/nav_history"
-        android:icon="@drawable/ic_001_history"
+        android:icon="@drawable/ic_history2"
         android:title="Health History" />
     <item
         android:id="@+id/nav_guardian"
-        android:icon="@drawable/ic_002_family"
+        android:icon="@drawable/ic_family"
         android:title="Guardian" />
-
-
+    <item
+        android:id="@+id/nav_other"
+        android:icon="@drawable/ic_support"
+        android:title="View your patient" />
 </menu>

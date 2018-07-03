@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="com.lenovo.deskclock" />
 
     <application
         android:allowBackup="true"
@@ -17,51 +18,158 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Appointment"
+            android:name=".MainBox1"
+            android:label="@string/title_box1"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainBox2"
+            android:label="@string/title_box2"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainBox3"
+            android:label="@string/title_box3"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainBox4"
+            android:label="@string/title_box4"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainBox5"
+            android:label="@string/title_box5"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainBox6"
+            android:label="@string/title_box6"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainBox7"
+            android:label="@string/title_box7"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainAppointment"
             android:label="@string/title_activity_appointment"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AddAppointment"
             android:label="@string/title_add_appointment"
-            android:parentActivityName=".Appointment"
+            android:parentActivityName=".MainAppointment"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".HealthHistory"
+            android:name=".MainHistory"
             android:label="@string/title_activity_history"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".AddHistory"
             android:label="@string/title_add_history"
-            android:parentActivityName=".HealthHistory"
+            android:parentActivityName=".MainHistory"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Guardian"
+            android:name=".Profile"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainGuardian"
             android:label="@string/title_activity_guardian"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AddGuardian"
             android:label="@string/title_add_guardian"
-            android:parentActivityName=".Guardian"
+            android:parentActivityName=".MainGuardian"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Pills"
+            android:name=".MainPills"
             android:label="@string/title_activity_pills"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AddPills"
             android:label="@string/title_add_pills"
-            android:parentActivityName=".Pills"
+            android:parentActivityName=".MainPills"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Patient1"
+            android:label="@string/title_show_patient"
+            android:theme="@style/AppTheme.NoActionBar"
+         />
+        <activity
+            android:name=".ChooseDisplay"
+            android:label="@string/title_choose_display" />
+        <activity
+            android:name=".DisplayPills"
+            android:label="@string/title_display_pills" />
+
+        <activity
+            android:name=".DisplayBox1"
+            android:label="@string/title_box1" />
+        <activity
+            android:name=".DisplayBox2"
+            android:label="@string/title_box2" />
+        <activity
+            android:name=".DisplayBox3"
+            android:label="@string/title_box3" />
+        <activity
+            android:name=".DisplayBox4"
+            android:label="@string/title_box4" />
+        <activity
+            android:name=".DisplayBox5"
+            android:label="@string/title_box5" />
+        <activity
+            android:name=".DisplayBox6"
+            android:label="@string/title_box6" />
+        <activity
+            android:name=".DisplayBox7"
+            android:label="@string/title_box7" />
+
+
+        <activity
+            android:name=".DisplayAppointment"
+            android:label="@string/title_display_appointment" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Box2"></activity>
+
+        <receiver android:name=".AlarmReceiver1" />
+        <receiver android:name=".AlarmReceiver2" />
+        <receiver android:name=".AlarmReceiver3" />
+        <receiver android:name=".AlarmReceiver4" />
+        <receiver android:name=".AlarmReceiver5" />
+        <receiver android:name=".AlarmReceiver6" />
+        <receiver android:name=".AlarmReceiver7" />
+        <service android:name=".RingtonePlayingService1"
+            android:enabled="true">
+        </service>
+        <service android:name=".RingtonePlayingService2"
+            android:enabled="true">
+        </service>
+        <service android:name=".RingtonePlayingService3"
+            android:enabled="true">
+        </service>
+        <service android:name=".RingtonePlayingService4"
+            android:enabled="true">
+        </service>
+        <service android:name=".RingtonePlayingService5"
+            android:enabled="true">
+        </service>
+        <service android:name=".RingtonePlayingService6"
+            android:enabled="true">
+        </service>
+        <service android:name=".RingtonePlayingService7"
+            android:enabled="true">
+        </service>
+
+
     </application>
 
 </manifest>

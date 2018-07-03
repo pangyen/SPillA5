@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.fatinnabila.spilla.MainActivity"
-    tools:showIn="@layout/base_pills">
+    tools:showIn="@layout/main_pills"
+    android:background="@mipmap/back9">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_pills"

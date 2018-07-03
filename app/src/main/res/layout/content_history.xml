@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.fatinnabila.spilla.HealthHistory"
-    tools:showIn="@layout/base_history">
+    tools:context="com.example.fatinnabila.spilla.MainHistory"
+    tools:showIn="@layout/main_history"
+    android:background="@mipmap/back9">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_history"

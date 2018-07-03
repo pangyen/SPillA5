@@ -15,8 +15,8 @@ import java.util.ArrayList;
 /**
  * Created by fatin nabila on 15/3/2018.
  */
-
-public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.AppointmentViewHolder> {
+public class AppointmentAdapter extends
+        RecyclerView.Adapter<AppointmentAdapter.AppointmentViewHolder> {
 
     private Context mContext;
     private ArrayList<AppointmentModel> mData;
@@ -44,6 +44,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         holder.atitle.setText(model.getTitle());
         holder.adate.setText(model.getDate());
         holder.atime.setText(model.getTime());
+        holder.aplace.setText(model.getPlace());
         // set description as log
     }
 
@@ -77,6 +78,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
         private TextView atitle;
         private TextView adate;
         private TextView atime;
+        private TextView aplace;
 
         AppointmentViewHolder(View itemView) {
             super(itemView);
@@ -84,6 +86,7 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             atitle = itemView.findViewById(R.id.tv_Atitle);
             adate = itemView.findViewById(R.id.tv_Adate);
             atime=itemView.findViewById(R.id.tv_Atime);
+            aplace=itemView.findViewById(R.id.tv_Aplace);
 
             itemView.setOnClickListener(this);
         }
@@ -93,5 +96,4 @@ public class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.
             mListener.onClick(getAdapterPosition());
         }
     }
-
 }

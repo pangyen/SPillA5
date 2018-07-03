@@ -25,8 +25,7 @@
         android:layout_toEndOf="@id/iv_iconJ"
         android:layout_toRightOf="@id/iv_iconJ"
         android:paddingStart="@dimen/standard_separator"
-        android:paddingEnd="@dimen/standard_separator"
-        />
+        android:paddingEnd="@dimen/standard_separator" />
 
     <TextView
         android:id="@+id/tv_descriptionG"
@@ -39,7 +38,19 @@
         android:layout_toRightOf="@id/iv_iconJ"
         android:layout_below="@id/tv_titleG"
         android:paddingStart="@dimen/standard_separator"
-        android:paddingEnd="@dimen/standard_separator"
-        />
+        android:paddingEnd="@dimen/standard_separator" />
+
+    <TextView
+        android:id="@+id/tv_emailG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:text="Description"
+        style="@style/TextAppearance.AppCompat.Caption"
+        android:layout_toEndOf="@id/iv_iconJ"
+        android:layout_toRightOf="@id/iv_iconJ"
+        android:layout_below="@id/tv_descriptionG"
+        android:paddingStart="@dimen/standard_separator"
+        android:paddingEnd="@dimen/standard_separator" />
 
 </RelativeLayout>

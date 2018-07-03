@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.fatinnabila.spilla.DisplayBox1"
+    android:orientation="vertical"
+    android:background="@mipmap/back9">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_m">
+        <TextView
+
+            android:id="@+id/labelstatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patient Status Pills : "
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/tvv_statusBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="detecting pills..."
+            android:textSize="20dp"
+            android:layout_toRightOf="@+id/labelstatus"
+            android:textColor="@color/black"
+            android:background="@color/colorAccent"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="@dimen/space_xl"
+        android:id="@+id/rv_displaypb1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"/>
+
+</LinearLayout>

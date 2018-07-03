@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.fatinnabila.spilla.ChooseDisplay"
+    android:background="@mipmap/back9">
+
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/btn_viewpill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/standard_margin"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="@dimen/standard_margin"
+        android:gravity="center"
+        android:text="@string/btn_viewpills"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:background="@color/colorAccent"/>
+
+    <Button
+        android:id="@+id/btn_viewappointment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/standard_margin"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="@dimen/standard_margin"
+        android:gravity="center"
+        android:text="@string/btn_viewappointment"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:background="@color/colorAccent"
+        android:layout_below="@+id/btn_viewpill"/>
+
+</RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>

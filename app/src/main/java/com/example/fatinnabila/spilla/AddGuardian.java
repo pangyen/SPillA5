@@ -6,14 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fatinnabila.spilla.data.Reference;
 import com.example.fatinnabila.spilla.model.GuardianModel;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,12 +33,15 @@ public class AddGuardian extends AppCompatActivity{
 
     private EditText mTVTitle;
     private EditText mTVDescription;
+    private EditText mTVGemail;
+    private TextView code;
+
 
     private DatabaseReference mReference;
 
     private String mId;
 
-    Button sendI;
+    Button addEmail;
 
     // Firebase Authentication
     private FirebaseAuth mFirebaseAuth;
@@ -58,61 +60,35 @@ public class AddGuardian extends AppCompatActivity{
 
 
 
-        sendI = findViewById(R.id.btn_invite);
+        //addEmail = (Button) findViewById(R.id.btn_addEmail);
+        code=(TextView)findViewById(R.id.et_code);
 
+        code.setText(mCurrentUser.getUid());
 
-        sendI.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("message/rfc822");
-                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
-                i.putExtra(Intent.EXTRA_SUBJECT, "SPillA Invite Code");
-                i.putExtra(Intent.EXTRA_TEXT   , "Dear Friend, I would like to be my SPillA apps friends.Get SPillA app at..Your invite code is  "  + generateHex()  );
-
-                try {
-                    startActivity(Intent.createChooser(i, "Send mail..."));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(AddGuardian.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                }
-
-
-                GuardianModel model = new GuardianModel(
-                        mTVTitle.getText().toString(),
-                        mTVDescription.getText().toString()
-
-                );
-
-                save(model, new DatabaseReference.CompletionListener() {
-                    @Override
-                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                        actionNotification(databaseError, R.string.done_saved);
-                    }
-                });
-
-            }
-
-
-
-        });
-
-
-
-
-
-        //email
-
-
-        // What to do when save
-
-
-
-
-
-
-
-
+//        addEmail.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//
+//
+//
+//                GuardianModel model = new GuardianModel(
+//                        mTVTitle.getText().toString(),
+//                        mTVDescription.getText().toString(),
+//                        mTVGemail.getText().toString()
+//
+//                );
+//
+//                save(model, new DatabaseReference.CompletionListener() {
+//                    @Override
+//                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+//                        actionNotification(databaseError, R.string.done_saved);
+//                    }
+//                });
+//            }
+//
+//        }
+//        );
 
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -121,17 +97,9 @@ public class AddGuardian extends AppCompatActivity{
         // Binding
         mTVTitle = (EditText) findViewById(R.id.et_titleG);
         mTVDescription = (EditText) findViewById(R.id.et_descriptionG);
+        mTVGemail=(EditText)findViewById(R.id.et_emailG);
 
         mReference = FirebaseDatabase.getInstance().getReference(mCurrentUser.getUid()).child(Reference.DB_GUARDIAN);
-
-
-
-
-
-
-
-
-
 
         Intent intent = getIntent();
         // Load record
@@ -143,8 +111,10 @@ public class AddGuardian extends AppCompatActivity{
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         GuardianModel model = dataSnapshot.getValue(GuardianModel.class);
                         if(model != null) {
+
                             mTVTitle.setText(model.getTitle());
                             mTVDescription.setText(model.getDescription());
+                            mTVGemail.setText(model.getEmail());
                         }
                     }
 
@@ -175,7 +145,7 @@ public class AddGuardian extends AppCompatActivity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_note, menu);
+        getMenuInflater().inflate(R.menu.menu_guardian, menu);
         return true;
     }
 
@@ -183,7 +153,35 @@ public class AddGuardian extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.action_save:
+            case R.id.action_send:
+
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("message/rfc822");
+                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{mTVGemail.getText().toString()});
+                i.putExtra(Intent.EXTRA_SUBJECT, "SPillA Invite Code");
+                i.putExtra(Intent.EXTRA_TEXT   , "Dear Friend, I would like to be my SPillA apps friends.Get SPillA app at..Your invite code is  "  + generateHex() +" " +
+                        "If you are aggree to be my guardian for my pills schedule, please insert " +
+                        "this code  "+ mCurrentUser.getUid() );
+
+                try {
+                    startActivity(Intent.createChooser(i, "Send mail..."));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(AddGuardian.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                }
+
+
+                GuardianModel model = new GuardianModel(
+                        mTVTitle.getText().toString(),
+                        mTVDescription.getText().toString(),
+                        mTVGemail.getText().toString()
+                );
+
+                save(model, new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                        actionNotification(databaseError, R.string.done_saved);
+                    }
+                });
 
 
                 break;
@@ -197,6 +195,8 @@ public class AddGuardian extends AppCompatActivity{
                     });
                 }
                 break;
+
+
         }
 
         return super.onOptionsItemSelected(item);

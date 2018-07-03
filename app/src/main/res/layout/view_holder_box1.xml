@@ -6,40 +6,25 @@
     android:layout_marginBottom="@dimen/standard_separator">
 
     <ImageView
-        android:id="@+id/iv_iconJ"
+        android:id="@+id/iv_iconJj"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:src="@mipmap/download" />
+        android:src="@mipmap/pillss" />
 
     <TextView
-        android:id="@+id/tv_titleG"
+        android:id="@+id/tv_titleO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="This is a title"
+        android:textColor="@color/colorPrimaryDark"
         android:ellipsize="end"
         style="@style/TextAppearance.AppCompat.Subhead"
         android:layout_alignTop="@id/iv_iconJ"
-        android:layout_toEndOf="@id/iv_iconJ"
+        android:layout_toEndOf="@id/iv_iconJj"
         android:layout_toRightOf="@id/iv_iconJ"
         android:paddingStart="@dimen/standard_separator"
-        android:paddingEnd="@dimen/standard_separator"
-        />
-
-    <TextView
-        android:id="@+id/tv_descriptionG"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:text="Description"
-        style="@style/TextAppearance.AppCompat.Caption"
-        android:layout_toEndOf="@id/iv_iconJ"
-        android:layout_toRightOf="@id/iv_iconJ"
-        android:layout_below="@id/tv_titleG"
-        android:paddingStart="@dimen/standard_separator"
-        android:paddingEnd="@dimen/standard_separator"
-        />
-
+        android:paddingEnd="@dimen/standard_separator" />
 </RelativeLayout>

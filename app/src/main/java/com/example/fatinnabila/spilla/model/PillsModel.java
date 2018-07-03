@@ -10,14 +10,18 @@ public class PillsModel {
 
     private String title;
     private String description;
-    private long createdAt;
+    private String dose;
+    private String purpose;
+    private String effect;
 
     public PillsModel() {}
 
-    public PillsModel(String title, String description, long createdAt) {
+    public PillsModel(String title, String description, String dose, String effect, String purpose) {
         this.title = title;
         this.description = description;
-        this.createdAt = createdAt;
+        this.dose = dose;
+        this.effect=effect;
+        this.purpose=purpose;
     }
 
     public String getTitle() {
@@ -36,11 +40,27 @@ public class PillsModel {
         this.description = description;
     }
 
-    public long getCreatedAt() {
-        return createdAt;
+    public String getDose() {
+        return dose;
     }
 
-    public void setCreatedAt(long createdAt) {
-        this.createdAt = createdAt;
+    public void dose(String dose) {
+        this.dose = dose;
+    }
+
+    public String getEffect() {
+        return effect;
+    }
+
+    public void setEffect(String effect) {
+        this.effect = effect;
+    }
+
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
     }
 }

@@ -1,11 +1,15 @@
 package com.example.fatinnabila.spilla;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,15 +27,17 @@ public class AddPills extends AppCompatActivity {
 
     private EditText mTVTitle;
     private EditText mTVDescription;
-
+    private EditText mTVDose;
+    private EditText mTVPurpose;
+    private EditText mTVEffect;
     private DatabaseReference mReference;
-
     private String mId;
 
     // Firebase Authentication
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mCurrentUser;
-
+    public String[] tablet_list={"1 tablet","2 tablets","3 tablets","4 tablets","5 tablets","6 tablets","7 tablets"};
+    public String[] description_list={"Take pills before eat!","Take pills after eat!"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +56,11 @@ public class AddPills extends AppCompatActivity {
         // Binding
         mTVTitle = (EditText) findViewById(R.id.et_title);
         mTVDescription = (EditText) findViewById(R.id.et_description);
+        mTVDose=(EditText) findViewById(R.id.et_dose);
+        mTVPurpose=(EditText)findViewById(R.id.et_purpose);
+        mTVEffect=(EditText)findViewById(R.id.et_effect) ;
+        //Spinner pillsSpinner = findViewById(R.id.et_dose);
+       // mTVDose = (Spinner) findViewById(R.id.et_dose);
 
         mReference = FirebaseDatabase.getInstance().getReference(mCurrentUser.getUid()).child(Reference.DB_PILLS);
 
@@ -65,6 +76,9 @@ public class AddPills extends AppCompatActivity {
                         if(model != null) {
                             mTVTitle.setText(model.getTitle());
                             mTVDescription.setText(model.getDescription());
+                            mTVDose.setText(model.getDose());
+                            mTVPurpose.setText(model.getPurpose());
+                            mTVEffect.setText(model.getEffect());
                         }
                     }
 
@@ -75,6 +89,41 @@ public class AddPills extends AppCompatActivity {
                 });
             }
         }
+
+
+
+        final ArrayAdapter<String> spinner_tablets = new  ArrayAdapter<String>(AddPills.this,android.R.layout.simple_spinner_dropdown_item, tablet_list);
+        final ArrayAdapter<String> spinner_description = new  ArrayAdapter<String>(AddPills.this,android.R.layout.simple_spinner_dropdown_item, description_list);
+
+        mTVDose.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                new AlertDialog.Builder(AddPills.this)
+                        .setTitle("How Many Tablets?")
+                        .setAdapter(spinner_tablets, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int which) {
+                                mTVDose.setText(tablet_list[which].toString());
+                                dialog.dismiss();
+                            }
+                        }).create().show();
+            }
+        });
+
+        mTVDescription.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                new AlertDialog.Builder(AddPills.this)
+                        .setTitle("Choose")
+                        .setAdapter(spinner_description, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int which) {
+                                mTVDescription.setText(description_list[which].toString());
+                                dialog.dismiss();
+                            }
+                        }).create().show();
+            }
+        });
     }
 
     @Override
@@ -95,7 +144,7 @@ public class AddPills extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_note, menu);
+        getMenuInflater().inflate(R.menu.menu_activity, menu);
         return true;
     }
 
@@ -109,7 +158,11 @@ public class AddPills extends AppCompatActivity {
                 PillsModel model = new PillsModel(
                         mTVTitle.getText().toString(),
                         mTVDescription.getText().toString(),
-                        System.currentTimeMillis()
+                        //mTVDose.getText().toString()+"dose",
+                      //  mTVDose.getSelectedItem().toString(),
+                        mTVDose.getText().toString(),
+                        mTVPurpose.getText().toString(),
+                        mTVEffect.getText().toString()
                 );
 
                 save(model, new DatabaseReference.CompletionListener() {
@@ -134,9 +187,7 @@ public class AddPills extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /***
-     * Save record to firebase
-     */
+    //save data
     private void save(PillsModel model,
                       DatabaseReference.CompletionListener listener) {
 

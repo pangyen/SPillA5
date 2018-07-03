@@ -7,13 +7,15 @@ package com.example.fatinnabila.spilla.model;
 public class GuardianModel {
     private String title;
     private String description;
+    private String email;
 
 
     public GuardianModel() {}
 
-    public GuardianModel(String title, String description) {
+    public GuardianModel(String title, String description, String email) {
         this.title = title;
         this.description = description;
+        this.email= email;
 
     }
 
@@ -31,6 +33,14 @@ public class GuardianModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 

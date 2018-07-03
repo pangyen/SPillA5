@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00BCD4</color>
+    <color name="colorPrimary">#00BFA5</color>
     <color name="colorPrimaryDark">#00838F</color>
-    <color name="colorAccent">#CDDC39</color>
-
-
+    <color name="colorAccent">#00BFA5</color>
+    <color name="colorSoft">#B2EBF2</color>
+    <color name="white">#FFFFFF</color>
     <color name="blue50">#E1F5Fe</color>
     <color name="blue100">#B3E5FC</color>
     <color name="blue200">#81D4FA</color>
@@ -15,10 +15,17 @@
     <color name="blue700">#0288D1</color>
     <color name="blue800">#0277BD</color>
     <color name="blue900">#01579B</color>
+    <!---->
+
+    <color name="oldblue">#00BCD4</color>
+    <color name="oldPrimaryDark">#00838F</color>
+    <color name="colorLime">#CDDC39</color>
 
 
     <color name="deeppurple">#7c4dff</color>
     <color name="yello">#ffb300</color>
     <color name="green">#00bfa5</color>
     <color name="pink">#fe104d</color>
+    <color name="black"> #010002</color>
+    <color name="lightgray">#ededed</color>
 </resources>
